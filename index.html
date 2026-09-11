@@ -2121,6 +2121,25 @@ function returnBagHome(bag) {
 
 }
 
+   const bagRect = draggedObject.getBoundingClientRect();
+
+const bagCenterX = bagRect.left + bagRect.width / 2;
+const bagCenterY = bagRect.top + bagRect.height / 2;
+
+const hit = isPointInsideCake(
+    bagCenterX,
+    bagCenterY,
+    correctCake
+);
+
+if (hit) {
+    // правильное попадание
+    completeCake(correctCake, draggedObject);
+} else {
+    // не попал — возвращаем мешок
+    returnBag(draggedObject);
+}
+
 
 /* =========================================================
    ПОКРАСКА КОРЖА
@@ -2213,6 +2232,22 @@ function paintCake(
 
     }
 
+}
+
+   function isPointInsideCake(x, y, cake) {
+    const rect = cake.getBoundingClientRect();
+
+    // Уменьшаем активную область относительно границ картинки.
+    // То есть клик/сброс должен попасть именно в центральную часть коржа.
+    const insetX = rect.width * 0.12;
+    const insetY = rect.height * 0.18;
+
+    return (
+        x >= rect.left + insetX &&
+        x <= rect.right - insetX &&
+        y >= rect.top + insetY &&
+        y <= rect.bottom - insetY
+    );
 }
 
 
