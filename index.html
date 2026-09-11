@@ -96,15 +96,11 @@ body {
     position: absolute;
 
     left: 50%;
-    transform: translateX(-50%);
-
-    /* Размер торта адаптируется плавно, а не скачет между экранами */
-    width: clamp(280px, 24vw, 430px);
     height: auto;
 
     pointer-events: none;
 
-    z-index: 10;
+    transform: translateX(-50%);
 
     transition:
         opacity 0.35s ease,
@@ -113,34 +109,41 @@ body {
 }
 
 
-/*
-    ПОЗИЦИИ КОРЖЕЙ
-
-    Здесь специально вынесены отдельно.
-    Если твои PNG будут чуть другого размера,
-    потом достаточно будет поправить эти значения.
-*/
-
+/* Нижний корж — самый большой */
 #cake1 {
-    top: 49%;
+    width: clamp(300px, 28vw, 480px);
+    top: 50%;
     z-index: 11;
 }
 
+
+/* Остальные три — одинакового размера */
+#cake2,
+#cake3,
+#cake4 {
+    width: clamp(230px, 22vw, 380px);
+}
+
+
+/* Второй */
 #cake2 {
-    top: 40%;
+    top: 41%;
     z-index: 12;
 }
 
+
+/* Третий */
 #cake3 {
-    top: 31%;
+    top: 32%;
     z-index: 13;
 }
 
+
+/* Верхний */
 #cake4 {
-    top: 22%;
+    top: 23%;
     z-index: 14;
 }
-
 
 /* =========================================================
    ПОДСТАВКА
@@ -884,34 +887,30 @@ body {
         background-size: cover;
     }
 
+   /* ---- ТОРТ ---- */
 
-    /* ---- ТОРТ ---- */
+#cake1 {
+    width: 76vw;
+    top: 51%;
+}
 
-    .cake-layer {
-        width: clamp(230px, 58vw, 430px);
-    }
+#cake2,
+#cake3,
+#cake4 {
+    width: 60vw;
+}
 
-    #cake1 {
-        top: 51%;
-    }
+#cake2 {
+    top: 42%;
+}
 
-    #cake2 {
-        top: 42%;
-    }
+#cake3 {
+    top: 33%;
+}
 
-    #cake3 {
-        top: 33%;
-    }
-
-    #cake4 {
-        top: 24%;
-    }
-
-
-    #cake-stand {
-        width: 62%;
-        top: 61%;
-    }
+#cake4 {
+    top: 24%;
+}
 
 
     /* ---- МЕШКИ ---- */
@@ -1089,19 +1088,23 @@ body {
          КОНДИТЕРСКИЕ МЕШКИ
     ====================================================== -->
 
-   <img class="bag"
+  <img id="bag-white"
+     class="piping-bag"
      src="images/piping1.png"
      data-color="white">
 
-<img class="bag"
+<img id="bag-blue"
+     class="piping-bag"
      src="images/piping2.png"
      data-color="blue">
 
-<img class="bag"
+<img id="bag-red"
+     class="piping-bag"
      src="images/piping3.png"
      data-color="red">
 
-<img class="bag"
+<img id="bag-yellow"
+     class="piping-bag"
      src="images/piping4.png"
      data-color="yellow">
 
