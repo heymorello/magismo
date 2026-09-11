@@ -2436,7 +2436,7 @@ function createFifteenCandles() {
         for (let i = 0; i < tier.count; i++) {
             const ratio = tier.count === 1 ? 0 : i / (tier.count - 1) - 0.5;
             positions.push({
-                x: (centerX + ratio * span - sceneRect.left) / sceneScale,
+                x: (centerX + ratio * span - sceneRect.left) / sceneScale - 20,
                 y: (y - sceneRect.top) / sceneScale
             });
         }
